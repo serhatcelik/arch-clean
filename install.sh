@@ -70,4 +70,4 @@ sudo -u "$USER" git clone https://github.com/zsh-users/zsh-syntax-highlighting.g
 sudo -u "$USER" cp -a my/. "$HOME_DIR"
 
 echo "Done."
-echo "Log out and log back in again as $USER."
+echo "Reboot and log in as $USER."
