@@ -1,0 +1,4 @@
+configuration {
+    modi: "run,drun";
+    font: "Roboto Mono for Powerline 12";
+}
