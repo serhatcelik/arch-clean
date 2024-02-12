@@ -1,3 +1,9 @@
+Install `git` package:
+
+```bash
+pacman -Syy git
+```
+
 Clone this repo:
 
 ```bash
