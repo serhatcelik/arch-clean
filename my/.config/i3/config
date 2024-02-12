@@ -39,7 +39,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id "rofi -show drun -config ~/.config/rofi/config.rasi"

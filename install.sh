@@ -1,5 +1,14 @@
 #!/bin/bash
 
+read -r -s -p "Enter password: " PASS
+
+if [ -z "$PASS" ]
+then
+    echo "No password, shell not changed."
+else
+    yes "$PASS" | sudo -S chsh --shell "$(which zsh)"
+fi
+
 if ! sudo pacman -Syu --noconfirm --needed alacritty alsa-utils arandr base-devel bluez bluez-utils caja curl dkms feh ffmpeg firefox flameshot gcc git htop i3 iptables ipython john jq libreoffice make man mesa nano neofetch net-tools netcat networkmanager openssh openvpn p7zip picom powerline powerline-fonts pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer python-pip rofi sudo unzip vim wget which wireshark-cli wireshark-qt xorg xorg-xinit zsh
 then
     echo "Alas, Pacman failed."
