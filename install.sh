@@ -15,12 +15,13 @@ FONT_DIR="$HOME_DIR/.local/share/fonts"
 if useradd "$USER" --gid users --groups wheel --shell /usr/bin/zsh --create-home --home-dir "$HOME_DIR"
 then
     yes "$PASS" | passwd "$USER"
-    EDITOR=vim
-    export EDITOR
-    visudo
 fi
 
-if ! pacman -Syu --noconfirm alacritty alsa-utils arandr base-devel bluez bluez-utils caja curl dkms feh ffmpeg firefox flameshot gcc git htop i3 iptables ipython john jq libreoffice make man mesa neofetch net-tools netcat networkmanager openssh openvpn p7zip picom powerline powerline-fonts pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer python-pip rofi sudo unzip vim virtualbox-guest-utils vulkan-icd-loader wget which wireshark-cli wireshark-qt xf86-input-evdev xf86-input-libinput xf86-input-synaptics xf86-input-vmmouse xorg xorg-xinit zsh
+EDITOR=vim
+export EDITOR
+visudo
+
+if ! pacman -Syu --noconfirm alacritty alsa-utils arandr base-devel bluez bluez-utils caja curl dkms feh ffmpeg firefox flameshot gcc git htop i3 iptables ipython john jq libreoffice make man mesa nano neofetch net-tools netcat networkmanager openssh openvpn p7zip picom powerline powerline-fonts pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer python-pip rofi sudo unzip vim virtualbox-guest-utils vulkan-icd-loader wget which wireshark-cli wireshark-qt xf86-input-evdev xf86-input-libinput xf86-input-synaptics xf86-input-vmmouse xorg xorg-xinit zsh
 then
     echo "Alas, Pacman failed."
     exit 1
