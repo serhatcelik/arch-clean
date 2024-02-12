@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! sudo pacman -Syu --noconfirm alacritty alsa-utils arandr base-devel bluez bluez-utils caja curl dkms feh ffmpeg firefox flameshot gcc git htop i3 iptables ipython john jq libreoffice make man mesa nano neofetch net-tools netcat networkmanager openssh openvpn p7zip picom powerline powerline-fonts pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer python-pip rofi sudo unzip vim wget which wireshark-cli wireshark-qt xorg xorg-xinit zsh
+if ! sudo pacman -Syu --noconfirm --needed alacritty alsa-utils arandr base-devel bluez bluez-utils caja curl dkms feh ffmpeg firefox flameshot gcc git htop i3 iptables ipython john jq libreoffice make man mesa nano neofetch net-tools netcat networkmanager openssh openvpn p7zip picom powerline powerline-fonts pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer python-pip rofi sudo unzip vim wget which wireshark-cli wireshark-qt xorg xorg-xinit zsh
 then
     echo "Alas, Pacman failed."
     exit 1
@@ -10,7 +10,7 @@ if ! grep -q "\[sublime-text\]" /etc/pacman.conf
 then
     curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
     echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | tee -a /etc/pacman.conf
-    sudo pacman -Syu sublime-text --noconfirm
+    sudo pacman -Syu sublime-text --noconfirm --needed
 fi
 
 git clone https://github.com/powerline/fonts.git --depth=1
