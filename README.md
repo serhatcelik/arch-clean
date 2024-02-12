@@ -20,4 +20,6 @@ cd ..
 rm -rf arch-clean
 ```
 
+Reboot and log in as new user.
+
 **Tested under Arch Linux 2024.02.01**

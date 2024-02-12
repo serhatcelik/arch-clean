@@ -46,4 +46,4 @@ sudo -u "$USER" git clone https://github.com/zsh-users/zsh-syntax-highlighting.g
 sudo -u "$USER" cp -a my/. "$HOME_DIR"
 
 echo "DONE."
-echo "Reboot and login as $USER."
+echo "Reboot and log in as $USER."
