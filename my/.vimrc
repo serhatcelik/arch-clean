@@ -40,7 +40,7 @@ set softtabstop=4
 " Set shift width.
 set shiftwidth=4
 
-" Shift width for insert mode.
+" Shift tab for insert mode.
 inoremap <S-Tab> <C-d>
 
 " Do not save backup files.
