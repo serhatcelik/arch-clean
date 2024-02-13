@@ -34,4 +34,3 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 
 cp -a my/. ~
 
-echo "DONE."
