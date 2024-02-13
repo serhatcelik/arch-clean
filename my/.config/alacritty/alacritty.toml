@@ -30,6 +30,10 @@ unfocused_hollow = true
 builtin_box_drawing = true
 size = 12.0
 
+[font.normal]
+family = "Roboto Mono for Powerline"
+style = "Regular"
+
 [font.bold]
 family = "Roboto Mono for Powerline"
 style = "Bold"
@@ -45,10 +49,6 @@ style = "Italic"
 [font.glyph_offset]
 x = 0
 y = 0
-
-[font.normal]
-family = "Roboto Mono for Powerline"
-style = "Regular"
 
 [font.offset]
 x = 0
