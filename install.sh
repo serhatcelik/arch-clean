@@ -29,18 +29,19 @@ git clone https://github.com/powerline/fonts.git --depth=1
 #################
 # Install fonts #
 #################
-unzip -o RobotoMono.zip -d ~/.local/share/fonts
+mkdir -p "$HOME/.local/share/fonts"
+unzip -o RobotoMono.zip -d "$HOME/.local/share/fonts"
 unzip -o JetBrainsMono-2.304.zip -d JetBrainsMono
-cp JetBrainsMono/fonts/ttf/* ~/.local/share/fonts
-cp fonts/RobotoMono/* ~/.local/share/fonts
-fc-cache -fv ~/.local/share/fonts
+cp JetBrainsMono/fonts/ttf/* "$HOME/.local/share/fonts"
+cp fonts/RobotoMono/* "$HOME/.local/share/fonts"
+fc-cache -fv "$HOME/.local/share/fonts"
 
 #####################
 # Install Oh My Zsh #
 #####################
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions.git "$HOME/.oh-my-zsh/plugins/zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting"
 
 ###################
 # Get credentials #
@@ -79,4 +80,4 @@ sudo chmod g+w /sys/class/backlight/intel_backlight/brightness
 ################
 # Copy configs #
 ################
-cp -a my/. ~
+cp -a my/. "$HOME"
