@@ -81,3 +81,5 @@ sudo chmod g+w /sys/class/backlight/intel_backlight/brightness
 # Copy configs #
 ################
 cp -a my/. "$HOME"
+
+chmod +x "$HOME/.config/polybar/launch.sh"
