@@ -3,7 +3,7 @@
 ####################
 # Install packages #
 ####################
-if ! sudo pacman -Syu --noconfirm --needed alacritty alsa-utils arandr base-devel blueberry bluez bluez-utils caja curl dkms feh ffmpeg firefox flameshot gcc git htop i3 iptables ipython john jq libreoffice make man mesa nano neofetch net-tools netcat networkmanager openssh openvpn p7zip pavucontrol picom polybar powerline powerline-fonts python-pip rofi sudo unzip vim wget which wireshark-cli wireshark-qt xorg xorg-xinit zsh
+if ! sudo pacman -Syu --noconfirm --needed alacritty alsa-utils arandr base-devel blueberry bluez bluez-utils caja code curl dkms feh ffmpeg firefox flameshot gcc git htop i3 iptables ipython john jq libreoffice make man mesa nano neofetch net-tools netcat networkmanager openssh openvpn p7zip pavucontrol picom polybar powerline powerline-fonts python-pip rofi sudo unzip vim wget which wireshark-cli wireshark-qt xorg xorg-xinit zsh
 then
     echo "Alas, Pacman failed."
     exit 1
