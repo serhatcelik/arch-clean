@@ -78,3 +78,10 @@ cat << EOF | sudo tee /etc/udev/rules.d/45-backlight.rules
 ACTION=="add",SUBSYSTEM=="backlight",KERNEL=="intel_backlight",RUN+="/bin/chgrp video /sys/class/backlight/intel_backlight/brightness"
 ACTION=="add",SUBSYSTEM=="backlight",KERNEL=="intel_backlight",RUN+="/bin/chmod g+w /sys/class/backlight/intel_backlight/brightness"
 EOF
+
+################
+# Copy configs #
+################
+cp -a my/. "$HOME"
+
+chmod +x "$HOME/.config/polybar/launch.sh"
