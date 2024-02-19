@@ -31,14 +31,8 @@ set expandtab
 " Copy the indentation of the current line to a new line.
 set autoindent
 
-" Set tab stop.
-set tabstop=4
-
-" Set soft tab stop.
-set softtabstop=4
-
-" Set shift width.
-set shiftwidth=4
+" Do smart autoindenting when starting a new line.
+set smartindent
 
 " Shift tab for insert mode.
 inoremap <S-Tab> <C-d>
