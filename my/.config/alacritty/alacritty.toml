@@ -75,8 +75,8 @@ startup_mode = "Windowed"
 title = "Alacritty"
 
 [window.dimensions]
-columns = 0
-lines = 0
+columns = 120
+lines = 35
 
 [window.padding]
 x = 12
