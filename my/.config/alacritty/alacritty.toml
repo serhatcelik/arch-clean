@@ -76,7 +76,7 @@ title = "Alacritty"
 
 [window.dimensions]
 columns = 120
-lines = 35
+lines = 30
 
 [window.padding]
 x = 12
