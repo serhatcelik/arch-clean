@@ -3,9 +3,9 @@ working_directory = "None"
 
 [bell]
 animation = "EaseOutExpo"
-color = "#ffffff"
+color = "#301934"
 command = "None"
-duration = 0
+duration = 200
 
 [colors.normal]
 black = "#073642"
