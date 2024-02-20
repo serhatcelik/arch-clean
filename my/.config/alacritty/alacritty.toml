@@ -5,7 +5,7 @@ working_directory = "None"
 animation = "EaseOutExpo"
 color = "#301934"
 command = "None"
-duration = 200
+duration = 0
 
 [colors.normal]
 black = "#073642"
