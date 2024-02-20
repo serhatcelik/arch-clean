@@ -51,7 +51,7 @@ echo "--> Change default shell to ZSH."
 echo "--> Add you to the video group."
 echo "--> Give write access to the video group so it can write to the brightness file."
 
-while read -r -p "Enter username: " USER
+while read -r -p "Enter a username: " USER
 do
     if [ "$USER" = root ]
     then
