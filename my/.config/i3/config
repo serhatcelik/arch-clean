@@ -36,13 +36,13 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id "alacritty --config-file ~/.config/alacritty/alacritty.toml"
+bindsym $mod+Return exec --no-startup-id alacritty --config-file ~/.config/alacritty/alacritty.yml
 
 # kill focused window
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id "rofi -show drun -config ~/.config/rofi/config.rasi"
+bindsym $mod+d exec --no-startup-id rofi -show drun -config ~/.config/rofi/config.rasi
 
 # change focus
 bindsym $mod+Left focus left
@@ -124,7 +124,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -148,15 +148,15 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # polybar
-exec_always --no-startup-id "~/.config/polybar/launch.sh"
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 focus_follows_mouse no
 
 # compositing manager
-exec_always --no-startup-id "picom --daemon --config ~/.config/picom/picom.conf"
+exec_always --no-startup-id picom --daemon --config ~/.config/picom/picom.conf
 
 # wallpaper
-exec_always --no-startup-id "sh ~/.fehbg"
+exec_always --no-startup-id sh ~/.fehbg
 
 # screenshot
-bindsym $mod+p exec --no-startup-id "flameshot gui"
+bindsym $mod+p exec --no-startup-id flameshot gui
