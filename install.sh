@@ -43,13 +43,42 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-autosuggestions.git "$HOME/.oh-my-zsh/plugins/zsh-autosuggestions"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting"
 
-###################
-# Get credentials #
-###################
-echo "Need your credentials to perform the following operations:"
-echo "--> Change default shell to ZSH."
+################
+# Disable DPMS #
+################
+cat << EOF | sudo tee /etc/X11/xorg.conf.d/10-monitor.conf
+Section "Extensions"
+    Option "DPMS" "Disable"
+EndSection
+
+Section "ServerFlags"
+    Option "BlankTime" "0"
+    Option "StandbyTime" "0"
+    Option "SuspendTime" "0"
+    Option "OffTime" "0"
+EndSection
+
+Section "ServerLayout"
+    Identifier "ServerLayout0"
+EndSection
+
+Section "Monitor"
+    Identifier "eDP-1"
+    Option "DPMS" "false"
+EndSection
+
+Section "Monitor"
+    Identifier "HDMI-1"
+    Option "DPMS" "false"
+EndSection
+EOF
+
+################
+# Get username #
+################
+echo "Need your username to perform the following operations:"
+echo "--> Change your default shell to ZSH."
 echo "--> Add you to the video group."
-echo "--> Give write access to the video group so it can write to the brightness file."
 
 while read -r -p "Enter a username: " USER
 do
