@@ -8,6 +8,6 @@ cd ..
 rm -rf arch-clean
 ```
 
-Log out and log back in again.
+After reboot, select i3 on login.
 
 **Tested under Arch Linux 2024.02.01**
