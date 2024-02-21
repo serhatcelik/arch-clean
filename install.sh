@@ -120,7 +120,7 @@ EndSection
 EOF
 
 
-printBlue "[*] CHANGE SHELL TO ZSH"
+printBlue "[*] CHANGE DEFAULT SHELL TO ZSH"
 
 if ! sudo chsh "$USER" --shell "$(which zsh)"
 then
