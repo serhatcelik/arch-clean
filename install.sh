@@ -37,7 +37,7 @@ then
 fi
 
 
-printBlue "[*] REFLECTOR"
+printBlue "[*] CREATE REFLECTOR CONFIG"
 
 cat << EOF | sudo tee /etc/xdg/reflector/reflector.conf
 --save /etc/pacman.d/mirrorlist
@@ -46,6 +46,10 @@ cat << EOF | sudo tee /etc/xdg/reflector/reflector.conf
 --latest 10
 --download-timeout 90
 EOF
+
+
+printBlue "[*] ENABLE REFLECTOR SERVICE"
+
 sudo systemctl enable reflector.timer
 sudo systemctl enable reflector.service
 
