@@ -184,6 +184,7 @@ bindsym $mod+p exec --no-startup-id flameshot gui
 
 # Start CopyQ server.
 exec_always --no-startup-id exec copyq
+
 bindsym $mod+q exec --no-startup-id copyq menu
 
 
