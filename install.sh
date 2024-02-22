@@ -41,7 +41,7 @@ EOF
 
 printBlue "[*] INSTALL PACKAGES"
 
-if ! sudo pacman -Syu --noconfirm --needed alacritty alsa-utils arandr base-devel blueberry bluez bluez-utils brightnessctl caja code curl dkms feh ffmpeg firefox flameshot gcc git htop i3 iptables ipython john jq libreoffice make man mesa nano neofetch net-tools netcat networkmanager openssh openvpn p7zip pavucontrol picom polybar powerline powerline-fonts pulseaudio python-pip reflector rofi sudo unzip vim wget which wireshark-cli wireshark-qt xorg xorg-xinit zsh
+if ! sudo pacman -Syu --noconfirm --needed alacritty alsa-utils arandr base-devel blueberry bluez bluez-utils brightnessctl caja code copyq curl dkms feh ffmpeg firefox flameshot gcc git htop i3 iptables ipython john jq libreoffice make man mesa nano neofetch net-tools netcat networkmanager openssh openvpn p7zip pavucontrol picom polybar powerline powerline-fonts pulseaudio python-pip reflector rofi sudo unzip vim wget which wireshark-cli wireshark-qt xorg xorg-xinit zsh
 then
     printRed "[x] Alas, Pacman failed."
     exit 1
