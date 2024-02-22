@@ -155,10 +155,10 @@ bindsym $mod+r mode "RESIZE"
 
 
 # Mode launcher.
-set $Launcher LAUNCH: Copy[Q]
+set $Launcher LAUNCH: [F]irefox
 
 mode "$Launcher" {
-    bindsym q exec copyq menu
+    bindsym f exec firefox
 
     bindsym Escape mode "default"
 }
@@ -184,6 +184,7 @@ bindsym $mod+p exec --no-startup-id flameshot gui
 
 # Start CopyQ server.
 exec_always --no-startup-id exec copyq
+bindsym $mod+q exec --no-startup-id copyq menu
 
 
 focus_follows_mouse no
