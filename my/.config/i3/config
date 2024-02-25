@@ -48,7 +48,7 @@ bindsym $mod+Shift+q kill
 
 
 # Start program launcher.
-bindsym $mod+d exec --no-startup-id rofi -show drun -config ~/.config/rofi/config.rasi
+bindsym $mod+d exec --no-startup-id rofi -no-lazy-grab -show drun -config ~/.config/rofi/config.rasi -theme ~/.config/rofi/theme.rasi
 
 
 # Change focus.
