@@ -153,6 +153,9 @@ printBlue "[*] COPY CONFIGS"
 cp -a my/. "$HOME"
 
 
-printBlue "[*] MAKE THE POLYBAR SCRIPT EXECUTABLE"
+printBlue "[*] MAKE THE POLYBAR SCRIPTS EXECUTABLE"
 
-chmod +x "$HOME/.config/polybar/launch.sh"
+for f in .sh .py
+do
+    sh -c "chmod +x $HOME/.config/polybar/*$f"
+done
