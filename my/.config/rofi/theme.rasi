@@ -24,8 +24,6 @@ entry {
     expand: true;
     horizontal-align: 0;
     padding: 10px;
-    placeholder-color: @br;
-    placeholder: "Search...";
     text-color: @br;
 }
 
