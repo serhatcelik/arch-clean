@@ -5,7 +5,7 @@ import tkinter.messagebox as mb
 
 
 def ask():
-    if not mb.askyesno(sys.argv[1], 'Are you sure?'):
+    if not mb.askyesno(sys.argv[1], 'Are you sure?', default='no'):
         sys.exit(1)
 
 
