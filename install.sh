@@ -64,10 +64,18 @@ fi
 sudo pacman -Syu sublime-text --noconfirm --needed
 
 
+printBlue "[*] REMOVE OLD FONTS"
+
+rm RobotoMono.zip
+rm JetBrainsMono-2.304.zip
+rm -r JetBrainsMono
+rm -r fonts
+
+
 printBlue "[*] DOWNLOAD FONTS"
 
-wget -q --show-progress --no-clobber https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/RobotoMono.zip
-wget -q --show-progress --no-clobber https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip
+wget -q --show-progress https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/RobotoMono.zip
+wget -q --show-progress https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip
 git clone https://github.com/powerline/fonts.git --depth=1
 
 
