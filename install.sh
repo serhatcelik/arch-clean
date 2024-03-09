@@ -127,6 +127,11 @@ ACTION=="add",SUBSYSTEM=="backlight",KERNEL=="intel_backlight",RUN+="/bin/chmod 
 EOF
 
 
+printBlue "[*] INSTALL POWERLEVEL10K"
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+
 printBlue "[*] COPY CONFIGS"
 
 cp -a my/. "$HOME"
