@@ -1,6 +1,6 @@
 @import "colors.rasi"
 
-window {
+* {
     background-color: @bg;
     border: 0px;
     location: center;
@@ -11,11 +11,14 @@ window {
     y-offset: 0;
 }
 
+error-message {
+    border: 50px;
+}
+
 prompt {
     background-color: @al;
     enabled: true;
     padding: 0px;
-    text-color: @br;
 }
 
 entry {
@@ -24,17 +27,14 @@ entry {
     expand: true;
     horizontal-align: 0;
     padding: 10px;
-    text-color: @br;
 }
 
 inputbar {
     background-color: @ac;
-    border: 0px;
     children: [ prompt, entry ];
     expand: false;
     margin: 0px;
     padding: 10px;
-    text-color: @br;
 }
 
 listview {
@@ -50,7 +50,6 @@ listview {
 
 mainbox {
     background-color: @al;
-    border: 0px;
     children: [ inputbar, listview ];
     padding: 0px;
     spacing: 0px;
@@ -58,21 +57,16 @@ mainbox {
 
 element {
     background-color: @al;
-    border: 0px;
     orientation: horizontal;
     padding: 10px;
-    text-color: @fg;
 }
 
 element selected {
     background-color: @ba;
-    border: 0px;
-    text-color: @fg;
 }
 
 element-icon {
     background-color: transparent;
-    border: 0px;
     size: 24px;
     text-color: inherit;
 }

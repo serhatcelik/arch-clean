@@ -1,12 +1,12 @@
 configuration {
     disable-history: false;
     display-drun: "DRUN";
-    display-run: "RUN";
+    display-window: "WINDOW";
     font: "Roboto Mono for Powerline 12";
     fullscreen: false;
     hide-scrollbar: true;
     icon-theme: "Papirus";
-    modi: "drun,run";
+    modi: "drun,window";
     show-icons: true;
     sidebar-mode: false;
 }
