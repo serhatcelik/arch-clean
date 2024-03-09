@@ -1,7 +1,7 @@
 configuration {
     disable-history: false;
     display-drun: "DRUN";
-    display-window: "WINDOW";
+    display-window: "WIND";
     font: "Roboto Mono for Powerline 12";
     fullscreen: false;
     hide-scrollbar: true;
