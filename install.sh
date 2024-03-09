@@ -30,7 +30,7 @@ fi
 
 printBlue "[*] INSTALL PACKAGES"
 
-if ! sudo pacman -Syu --noconfirm --needed alacritty alsa-utils arandr base base-devel blueberry bluez bluez-utils brightnessctl caja code copyq curl dkms feh ffmpeg firefox flameshot gcc git htop i3 intel-media-driver iptables ipython john jq libreoffice libva-intel-driver libva-mesa-driver make man mesa nano neofetch net-tools netcat networkmanager openssh openvpn p7zip papirus-icon-theme pavucontrol picom polybar powerline powerline-fonts pulseaudio python python-pip reflector rofi sudo tk unzip vim vulkan-intel vulkan-radeon wget which wireshark-cli wireshark-qt xf86-video-amdgpu xf86-video-ati xf86-video-nouveau xf86-video-vmware xorg xorg-server xorg-xinit zsh
+if ! sudo pacman -Syu --noconfirm --needed alacritty alsa-utils arandr base base-devel blueberry bluez bluez-utils brightnessctl caja copyq curl dkms feh ffmpeg firefox flameshot gcc git htop i3 intel-media-driver iptables ipython john jq libreoffice libva-intel-driver libva-mesa-driver make man mesa nano neofetch net-tools netcat networkmanager openssh openvpn p7zip papirus-icon-theme pavucontrol picom polybar powerline powerline-fonts pulseaudio python python-pip reflector rofi sudo tk unzip vim vulkan-intel vulkan-radeon wget which wireshark-cli wireshark-qt xf86-video-amdgpu xf86-video-ati xf86-video-nouveau xf86-video-vmware xorg xorg-server xorg-xinit zip zsh
 then
     printRed "[x] Alas, Pacman failed."
     exit 1
@@ -62,35 +62,6 @@ then
     echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
 fi
 sudo pacman -Syu sublime-text --noconfirm --needed
-
-
-printBlue "[*] REMOVE OLD FONTS"
-
-rm RobotoMono.zip
-rm JetBrainsMono-2.304.zip
-rm -r JetBrainsMono
-rm -r fonts
-
-
-printBlue "[*] DOWNLOAD FONTS"
-
-wget -q --show-progress https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/RobotoMono.zip
-wget -q --show-progress https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip
-git clone https://github.com/powerline/fonts.git --depth=1
-
-
-printBlue "[*] INSTALL FONTS"
-
-mkdir -p "$HOME/.local/share/fonts"
-unzip -o RobotoMono.zip -d "$HOME/.local/share/fonts"
-unzip -o JetBrainsMono-2.304.zip -d JetBrainsMono
-cp JetBrainsMono/fonts/ttf/* "$HOME/.local/share/fonts"
-cp fonts/RobotoMono/* "$HOME/.local/share/fonts"
-
-
-printBlue "[*] BUILD FONT INFORMATION CACHE FILES"
-
-fc-cache -fv "$HOME/.local/share/fonts"
 
 
 printBlue "[*] INSTALL OH MY ZSH"
@@ -159,6 +130,11 @@ EOF
 printBlue "[*] COPY CONFIGS"
 
 cp -a my/. "$HOME"
+
+
+printBlue "[*] BUILD FONT INFORMATION CACHE FILES"
+
+fc-cache -fv "$HOME/.local/share/fonts"
 
 
 printBlue "[*] MAKE THE POLYBAR SCRIPTS EXECUTABLE"
