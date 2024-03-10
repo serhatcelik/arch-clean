@@ -1,10 +1,10 @@
 #!/bin/bash
 
-OK="\033[34m"
-ER="\033[31m"
+ERR="\033[31m"
+INF="\033[34m"
 
 
-info() {
+msg() {
     echo -e "$1$2\033[0m"
 }
 
@@ -22,23 +22,23 @@ trap sigint SIGINT
 
 if [ "$(id -u)" -eq 0 ]
 then
-    info "$ER" "You are root."
+    msg "$ERR" "You are root."
     exit 1
 else
     sudo true  # Get sudo token
 fi
 
 
-info "$OK" "== INSTALL PACKAGES =="
+msg "$INF" "== INSTALL PACKAGES =="
 
-if ! sudo pacman -Syu --noconfirm --needed alacritty alsa-utils arandr base base-devel blueberry bluez bluez-utils brightnessctl caja copyq curl dkms feh ffmpeg firefox flameshot gcc git htop i3 intel-media-driver iptables ipython john jq libreoffice libva-intel-driver libva-mesa-driver make man mesa nano neofetch net-tools netcat networkmanager openssh openvpn p7zip papirus-icon-theme pavucontrol picom polybar powerline powerline-fonts pulseaudio python python-pip reflector rofi sudo tk unzip vim vulkan-intel vulkan-radeon wget which wireshark-cli wireshark-qt xf86-video-amdgpu xf86-video-ati xf86-video-nouveau xf86-video-vmware xorg xorg-server xorg-xinit zip zsh
+if ! sudo pacman -Syu --noconfirm --needed alacritty alsa-utils arandr base base-devel bluez bluez-utils brightnessctl caja copyq curl dkms feh ffmpeg firefox flameshot gcc git htop i3 intel-media-driver iptables ipython john jq libreoffice libva-intel-driver libva-mesa-driver lightdm lightdm-gtk-greeter make man mesa nano neofetch net-tools netcat networkmanager openssh openvpn p7zip papirus-icon-theme pavucontrol picom polybar powerline powerline-fonts pulseaudio python python-pip reflector rofi sudo tk unzip vim vulkan-intel vulkan-radeon wget which wireshark-cli wireshark-qt xf86-video-amdgpu xf86-video-ati xf86-video-nouveau xf86-video-vmware xorg xorg-server xorg-xinit xss-lock zip zsh
 then
-    info "$ER" "Alas, Pacman failed."
+    msg "$ERR" "Alas, Pacman failed."
     exit 1
 fi
 
 
-info "$OK" "== CREATE REFLECTOR CONFIG =="
+msg "$INF" "== CREATE REFLECTOR CONFIG =="
 
 cat << EOF | sudo tee /etc/xdg/reflector/reflector.conf
 --save /etc/pacman.d/mirrorlist
@@ -49,13 +49,21 @@ cat << EOF | sudo tee /etc/xdg/reflector/reflector.conf
 EOF
 
 
-info "$OK" "== ENABLE REFLECTOR =="
+msg "$INF" "== UNBLOCK WIRELESS DEVICES WITH RFKILL =="
 
+rfkill unblock bluetooth
+rfkill unblock wlan
+
+
+msg "$INF" "== ENABLE SERVICES =="
+
+sudo systemctl enable bluetooth.service
+sudo systemctl enable lightdm.service
 sudo systemctl enable reflector.timer
 sudo systemctl enable reflector.service
 
 
-info "$OK" "== INSTALL SUBLIME TEXT =="
+msg "$INF" "== INSTALL SUBLIME TEXT =="
 
 curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
 if ! grep -q "\[sublime-text\]" /etc/pacman.conf
@@ -65,18 +73,18 @@ fi
 sudo pacman -Syu sublime-text --noconfirm --needed
 
 
-info "$OK" "== INSTALL OH MY ZSH =="
+msg "$INF" "== INSTALL OH MY ZSH =="
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 
-info "$OK" "== DOWNLOAD OH MY ZSH PLUGINS =="
+msg "$INF" "== DOWNLOAD OH MY ZSH PLUGINS =="
 
 git clone https://github.com/zsh-users/zsh-autosuggestions.git "$HOME/.oh-my-zsh/plugins/zsh-autosuggestions"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting"
 
 
-info "$OK" "== DISABLE DPMS =="
+msg "$INF" "== DISABLE DPMS =="
 
 cat << EOF | sudo tee /etc/X11/xorg.conf.d/10-monitor.conf
 Section "Extensions"
@@ -102,21 +110,21 @@ EndSection
 EOF
 
 
-info "$OK" "== CHANGE DEFAULT SHELL TO ZSH =="
+msg "$INF" "== CHANGE DEFAULT SHELL TO ZSH =="
 
 if ! sudo chsh "$USER" --shell "$(which zsh)"
 then
-    info "$ER" "Cannot change shell."
+    msg "$ERR" "Cannot change shell."
     exit 1
 fi
 
 
-info "$OK" "== ADD USER TO THE VIDEO GROUP =="
+msg "$INF" "== ADD USER TO THE VIDEO GROUP =="
 
 sudo usermod -a -G video "$USER"
 
 
-info "$OK" "== BRIGHTNESS FIX =="
+msg "$INF" "== BRIGHTNESS FIX =="
 
 cat << EOF | sudo tee /etc/udev/rules.d/45-backlight.rules
 ACTION=="add",SUBSYSTEM=="backlight",KERNEL=="intel_backlight",RUN+="/bin/chgrp video /sys/class/backlight/intel_backlight/brightness"
@@ -124,22 +132,27 @@ ACTION=="add",SUBSYSTEM=="backlight",KERNEL=="intel_backlight",RUN+="/bin/chmod 
 EOF
 
 
-info "$OK" "== INSTALL POWERLEVEL10K =="
+msg "$INF" "== INSTALL POWERLEVEL10K =="
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
 
-info "$OK" "== COPY CONFIGS =="
+msg "$INF" "== COPY CONFIGS =="
 
 cp -a my/. "$HOME"
 
 
-info "$OK" "== BUILD FONT INFORMATION CACHE FILES =="
+msg "$INF" "== COPY CONFIGS FOR SYSTEM-WIDE USAGE =="
 
-fc-cache -fv "$HOME/.local/share/fonts"
+sudo cp -a system/. /
 
 
-info "$OK" "== MAKE THE POLYBAR SCRIPTS EXECUTABLE =="
+msg "$INF" "== BUILD FONT INFORMATION CACHE FILES =="
+
+fc-cache -fv /usr/share/fonts
+
+
+msg "$INF" "== MAKE THE POLYBAR SCRIPTS EXECUTABLE =="
 
 for f in .sh .py
 do
