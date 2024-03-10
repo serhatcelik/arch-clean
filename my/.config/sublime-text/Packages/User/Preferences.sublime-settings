@@ -2,7 +2,7 @@
 // and are overridden in turn by syntax-specific settings.
 {
     "draw_white_space": "all",
-    "font_face": "JetBrains Mono Regular",
+    "font_face": "MesloLGS NF",
     "font_size": 12,
     "hot_exit": false,
     "scroll_past_end": true,
@@ -13,5 +13,5 @@
     "translate_tabs_to_spaces": true,
     "trim_only_modified_white_space": false,
     "trim_trailing_white_space_on_save": "all",
-    "word_wrap": "auto"
+    "word_wrap": "auto",
 }
