@@ -13,7 +13,7 @@
 set $mod Mod4
 
 
-font pango:RobotoMono Nerd Font Regular 12
+font pango:MesloLGS NF Regular 12
 
 
 # Lock your screen.
