@@ -29,7 +29,7 @@ else
 fi
 
 
-info "$OK" "INSTALL PACKAGES"
+info "$OK" "== INSTALL PACKAGES =="
 
 if ! sudo pacman -Syu --noconfirm --needed alacritty alsa-utils arandr base base-devel blueberry bluez bluez-utils brightnessctl caja copyq curl dkms feh ffmpeg firefox flameshot gcc git htop i3 intel-media-driver iptables ipython john jq libreoffice libva-intel-driver libva-mesa-driver make man mesa nano neofetch net-tools netcat networkmanager openssh openvpn p7zip papirus-icon-theme pavucontrol picom polybar powerline powerline-fonts pulseaudio python python-pip reflector rofi sudo tk unzip vim vulkan-intel vulkan-radeon wget which wireshark-cli wireshark-qt xf86-video-amdgpu xf86-video-ati xf86-video-nouveau xf86-video-vmware xorg xorg-server xorg-xinit zip zsh
 then
@@ -38,7 +38,7 @@ then
 fi
 
 
-info "$OK" "CREATE REFLECTOR CONFIG"
+info "$OK" "== CREATE REFLECTOR CONFIG =="
 
 cat << EOF | sudo tee /etc/xdg/reflector/reflector.conf
 --save /etc/pacman.d/mirrorlist
@@ -49,13 +49,13 @@ cat << EOF | sudo tee /etc/xdg/reflector/reflector.conf
 EOF
 
 
-info "$OK" "ENABLE REFLECTOR"
+info "$OK" "== ENABLE REFLECTOR =="
 
 sudo systemctl enable reflector.timer
 sudo systemctl enable reflector.service
 
 
-info "$OK" "INSTALL SUBLIME TEXT"
+info "$OK" "== INSTALL SUBLIME TEXT =="
 
 curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
 if ! grep -q "\[sublime-text\]" /etc/pacman.conf
@@ -65,18 +65,18 @@ fi
 sudo pacman -Syu sublime-text --noconfirm --needed
 
 
-info "$OK" "INSTALL OH MY ZSH"
+info "$OK" "== INSTALL OH MY ZSH =="
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 
-info "$OK" "DOWNLOAD OH MY ZSH PLUGINS"
+info "$OK" "== DOWNLOAD OH MY ZSH PLUGINS =="
 
 git clone https://github.com/zsh-users/zsh-autosuggestions.git "$HOME/.oh-my-zsh/plugins/zsh-autosuggestions"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting"
 
 
-info "$OK" "DISABLE DPMS"
+info "$OK" "== DISABLE DPMS =="
 
 cat << EOF | sudo tee /etc/X11/xorg.conf.d/10-monitor.conf
 Section "Extensions"
@@ -102,7 +102,7 @@ EndSection
 EOF
 
 
-info "$OK" "CHANGE DEFAULT SHELL TO ZSH"
+info "$OK" "== CHANGE DEFAULT SHELL TO ZSH =="
 
 if ! sudo chsh "$USER" --shell "$(which zsh)"
 then
@@ -111,12 +111,12 @@ then
 fi
 
 
-info "$OK" "ADD USER TO THE VIDEO GROUP"
+info "$OK" "== ADD USER TO THE VIDEO GROUP =="
 
 sudo usermod -a -G video "$USER"
 
 
-info "$OK" "BRIGHTNESS FIX"
+info "$OK" "== BRIGHTNESS FIX =="
 
 cat << EOF | sudo tee /etc/udev/rules.d/45-backlight.rules
 ACTION=="add",SUBSYSTEM=="backlight",KERNEL=="intel_backlight",RUN+="/bin/chgrp video /sys/class/backlight/intel_backlight/brightness"
@@ -124,22 +124,22 @@ ACTION=="add",SUBSYSTEM=="backlight",KERNEL=="intel_backlight",RUN+="/bin/chmod 
 EOF
 
 
-info "$OK" "INSTALL POWERLEVEL10K"
+info "$OK" "== INSTALL POWERLEVEL10K =="
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
 
-info "$OK" "COPY CONFIGS"
+info "$OK" "== COPY CONFIGS =="
 
 cp -a my/. "$HOME"
 
 
-info "$OK" "BUILD FONT INFORMATION CACHE FILES"
+info "$OK" "== BUILD FONT INFORMATION CACHE FILES =="
 
 fc-cache -fv "$HOME/.local/share/fonts"
 
 
-info "$OK" "MAKE THE POLYBAR SCRIPTS EXECUTABLE"
+info "$OK" "== MAKE THE POLYBAR SCRIPTS EXECUTABLE =="
 
 for f in .sh .py
 do
