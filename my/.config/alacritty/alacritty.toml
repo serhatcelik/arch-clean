@@ -31,8 +31,7 @@ builtin_box_drawing = true
 size = 12.0
 
 [font.normal]
-family = "Roboto Mono for Powerline"
-style = "Regular"
+family = "MesloLGS NF"
 
 [font.glyph_offset]
 x = 0
