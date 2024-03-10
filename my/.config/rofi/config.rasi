@@ -2,7 +2,7 @@ configuration {
     disable-history: false;
     display-drun: "DRUN";
     display-window: "WIND";
-    font: "Roboto Mono for Powerline 12";
+    font: "MesloLGS NF 12";
     fullscreen: false;
     hide-scrollbar: true;
     icon-theme: "Papirus";
