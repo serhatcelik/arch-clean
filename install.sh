@@ -72,11 +72,7 @@ sudo systemctl enable reflector.timer
 
 echo "+++ CHANGE DEFAULT SHELL TO ZSH +++"
 
-if ! sudo chsh "$USER" --shell "$(which zsh)"
-then
-    echo "--- exit, cannot change shell ---"
-    exit 1
-fi
+sudo chsh "$USER" --shell "$(which zsh)"
 
 
 echo "+++ ADD USER TO THE VIDEO GROUP +++"
