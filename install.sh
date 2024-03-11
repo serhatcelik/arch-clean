@@ -38,17 +38,6 @@ then
 fi
 
 
-msg "$INF" "== CREATE REFLECTOR CONFIG =="
-
-cat << EOF | sudo tee /etc/xdg/reflector/reflector.conf
---save /etc/pacman.d/mirrorlist
---country Germany
---protocol https
---latest 10
---download-timeout 90
-EOF
-
-
 msg "$INF" "== UNBLOCK WIRELESS DEVICES WITH RFKILL =="
 
 rfkill unblock bluetooth
@@ -84,32 +73,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git "$HOME/.oh-my-zsh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting"
 
 
-msg "$INF" "== DISABLE DPMS =="
-
-cat << EOF | sudo tee /etc/X11/xorg.conf.d/10-monitor.conf
-Section "Extensions"
-    Option "DPMS" "Disable"
-EndSection
-Section "ServerFlags"
-    Option "BlankTime" "0"
-    Option "StandbyTime" "0"
-    Option "SuspendTime" "0"
-    Option "OffTime" "0"
-EndSection
-Section "ServerLayout"
-    Identifier "ServerLayout0"
-EndSection
-Section "Monitor"
-    Identifier "eDP-1"
-    Option "DPMS" "false"
-EndSection
-Section "Monitor"
-    Identifier "HDMI-1"
-    Option "DPMS" "false"
-EndSection
-EOF
-
-
 msg "$INF" "== CHANGE DEFAULT SHELL TO ZSH =="
 
 if ! sudo chsh "$USER" --shell "$(which zsh)"
@@ -122,14 +85,6 @@ fi
 msg "$INF" "== ADD USER TO THE VIDEO GROUP =="
 
 sudo usermod -a -G video "$USER"
-
-
-msg "$INF" "== BRIGHTNESS FIX =="
-
-cat << EOF | sudo tee /etc/udev/rules.d/45-backlight.rules
-ACTION=="add",SUBSYSTEM=="backlight",KERNEL=="intel_backlight",RUN+="/bin/chgrp video /sys/class/backlight/intel_backlight/brightness"
-ACTION=="add",SUBSYSTEM=="backlight",KERNEL=="intel_backlight",RUN+="/bin/chmod g+w /sys/class/backlight/intel_backlight/brightness"
-EOF
 
 
 msg "$INF" "== INSTALL POWERLEVEL10K =="
