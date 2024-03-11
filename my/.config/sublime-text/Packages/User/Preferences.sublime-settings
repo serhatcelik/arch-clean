@@ -2,7 +2,7 @@
 // and are overridden in turn by syntax-specific settings.
 {
     "draw_white_space": "all",
-    "font_face": "MesloLGS NF",
+    "font_face": "JetBrains Mono Regular",
     "font_size": 12,
     "hot_exit": false,
     "scroll_past_end": true,
