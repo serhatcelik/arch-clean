@@ -1,6 +1,6 @@
 #!/bin/bash
 
-trap "" SIGINT  # Ignore SIGINT
+trap "" SIGINT
 
 if [ "$(id -u)" -eq 0 ]
 then
@@ -10,10 +10,10 @@ else
     sudo true  # Get sudo token
 fi
 
-# Install Packages
+# Install packages
 if ! sudo pacman -Syu --noconfirm --needed alacritty alsa-utils arandr base base-devel bluez bluez-utils brightnessctl caja copyq curl dkms feh ffmpeg firefox flameshot gcc git htop i3 intel-media-driver iptables ipython john jq libreoffice libva-intel-driver libva-mesa-driver lightdm lightdm-gtk-greeter make man mesa nano neofetch net-tools netcat networkmanager openssh openvpn p7zip papirus-icon-theme pavucontrol picom polybar powerline powerline-fonts pulseaudio python python-pip reflector rofi sudo tk unzip vim vulkan-intel vulkan-radeon wget which wireshark-cli wireshark-qt xf86-input-libinput xf86-video-amdgpu xf86-video-ati xf86-video-nouveau xf86-video-vmware xorg xorg-server xorg-xinit xss-lock zip zsh
 then
-    echo "Alas, pacman failed."
+    echo "Alas, Pacman failed."
     exit 1
 fi
 
@@ -29,7 +29,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-autosuggestions.git "$HOME/.oh-my-zsh/plugins/zsh-autosuggestions"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting"
 
-# Download powerlevel10k theme
+# Download Powerlevel10k theme
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
 # Unblock wireless devices with rfkill
