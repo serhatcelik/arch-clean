@@ -26,7 +26,7 @@ fi
 echo "+++ INSTALL SUBLIME TEXT +++"
 
 curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
-if ! grep -q "\[sublime-text\]" /etc/pacman.conf
+if ! grep -q "sublime-text" /etc/pacman.conf
 then
     cat << EOF | sudo tee -a /etc/pacman.conf
 [sublime-text]
