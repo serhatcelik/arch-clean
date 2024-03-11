@@ -96,12 +96,12 @@ msg "$INF" "== ADD USER TO THE VIDEO GROUP =="
 sudo usermod -a -G video "$USER"
 
 
-msg "$INF" "== COPY CONFIGS =="
+msg "$INF" "== COPY CONFIGS (USER) =="
 
 cp -a my/. "$HOME"
 
 
-msg "$INF" "== COPY CONFIGS FOR SYSTEM-WIDE USAGE =="
+msg "$INF" "== COPY CONFIGS (SYSTEM) =="
 
 sudo cp -a system/. /
 
