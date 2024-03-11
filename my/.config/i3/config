@@ -21,6 +21,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- sh ~/.config/i3/lock.sh
 
 bindsym $mod+l exec --no-startup-id sh ~/.config/i3/lock.sh
 
+
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
