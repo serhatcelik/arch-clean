@@ -1,13 +1,9 @@
 #!/bin/bash
 
-
-sigint() {
-    exit 2
-}
+trap "" SIGINT  # Ignore SIGINT
 
 
-trap sigint SIGINT
-
+echo "+++ CHECK IF RUNNING AS ROOT +++"
 
 if [ "$(id -u)" -eq 0 ]
 then
