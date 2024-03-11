@@ -17,10 +17,9 @@ font pango:MesloLGS NF Regular 12
 
 
 # Lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- sh ~/.config/i3/lock.sh
 
-bindsym $mod+l exec --no-startup-id i3lock --nofork --color=301934 --show-failed-attempts
-
+bindsym $mod+l exec --no-startup-id sh ~/.config/i3/lock.sh
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -183,9 +182,10 @@ bindsym $mod+p exec --no-startup-id flameshot gui
 
 
 # Start CopyQ server.
-exec_always --no-startup-id exec copyq
+exec_always --no-startup-id copyq
 
 bindsym $mod+q exec --no-startup-id copyq menu
 
 
+# Disable mouse focus, it is annoying.
 focus_follows_mouse no
