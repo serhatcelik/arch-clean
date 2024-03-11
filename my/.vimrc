@@ -54,8 +54,3 @@ set history=10000
 
 " Show the status on the second to last line.
 set laststatus=2
-
-" Powerline support.
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
