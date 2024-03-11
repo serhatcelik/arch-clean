@@ -48,8 +48,12 @@ msg "$INF" "== ENABLE SERVICES =="
 
 sudo systemctl enable bluetooth.service
 sudo systemctl enable lightdm.service
-sudo systemctl enable reflector.timer
 sudo systemctl enable reflector.service
+
+
+msg "$INF" "== ENABLE TIMERS =="
+
+sudo systemctl enable reflector.timer
 
 
 msg "$INF" "== INSTALL SUBLIME TEXT =="
