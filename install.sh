@@ -38,24 +38,6 @@ then
 fi
 
 
-msg "$INF" "== UNBLOCK WIRELESS DEVICES WITH RFKILL =="
-
-rfkill unblock bluetooth
-rfkill unblock wlan
-
-
-msg "$INF" "== ENABLE SERVICES =="
-
-sudo systemctl enable bluetooth.service
-sudo systemctl enable lightdm.service
-sudo systemctl enable reflector.service
-
-
-msg "$INF" "== ENABLE TIMERS =="
-
-sudo systemctl enable reflector.timer
-
-
 msg "$INF" "== INSTALL SUBLIME TEXT =="
 
 curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
@@ -77,6 +59,29 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git "$HOME/.oh-my-zsh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting"
 
 
+msg "$INF" "== INSTALL POWERLEVEL10K =="
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+
+
+msg "$INF" "== UNBLOCK WIRELESS DEVICES WITH RFKILL =="
+
+rfkill unblock bluetooth
+rfkill unblock wlan
+
+
+msg "$INF" "== ENABLE SERVICES =="
+
+sudo systemctl enable bluetooth.service
+sudo systemctl enable lightdm.service
+sudo systemctl enable reflector.service
+
+
+msg "$INF" "== ENABLE TIMERS =="
+
+sudo systemctl enable reflector.timer
+
+
 msg "$INF" "== CHANGE DEFAULT SHELL TO ZSH =="
 
 if ! sudo chsh "$USER" --shell "$(which zsh)"
@@ -89,11 +94,6 @@ fi
 msg "$INF" "== ADD USER TO THE VIDEO GROUP =="
 
 sudo usermod -a -G video "$USER"
-
-
-msg "$INF" "== INSTALL POWERLEVEL10K =="
-
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
 
 msg "$INF" "== COPY CONFIGS =="
