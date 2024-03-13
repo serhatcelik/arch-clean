@@ -1,7 +1,7 @@
-" Create a higlight group.
+" Create a highlight group for trailing whitespaces.
 highlight Trail ctermbg=red
 
-" Ensure that the highlight groups is not cleared by future colorscheme commands.
+" Ensure that the highlight group is not cleared by future colorscheme commands.
 autocmd ColorScheme * highlight Trail ctermbg=red
 
 " Show trailing whitespaces.
