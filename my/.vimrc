@@ -1,13 +1,13 @@
-" Create a highlight group.
-highlight Trail ctermbg=red guibg=red
+" Create a higlight group.
+highlight Trail ctermbg=red
 
-" Ensure that the highlight group is not cleared by future colorscheme commands.
-autocmd ColorScheme * highlight Trail ctermbg=red guibg=red
+" Ensure that the highlight groups is not cleared by future colorscheme commands.
+autocmd ColorScheme * highlight Trail ctermbg=red
 
-" Show trailing whitespace.
+" Show trailing whitespaces.
 match Trail /\s\+$/
 
-" Strip trailing spaces on save.
+" Strip trailing whitespaces on save.
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Automatically go to next line.
@@ -54,3 +54,9 @@ set history=10000
 
 " Show the status on the second to last line.
 set laststatus=2
+
+" Show line numbers.
+" set number
+
+" Show a vertical line for the maximum line length.
+" set colorcolumn=80
