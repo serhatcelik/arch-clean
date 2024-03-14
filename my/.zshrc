@@ -75,7 +75,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-setopt NO_AUTO_CD
 ZSH_HIGHLIGHT_STYLES[comment]='none'
 
 # export MANPATH="/usr/local/man:$MANPATH"
