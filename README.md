@@ -2,7 +2,6 @@ Clone this repo and run `install.sh` from a non-root user:
 
 ```bash
 cd arch-clean
-chmod +x install.sh
 ./install.sh
 cd ..
 rm -rf arch-clean
