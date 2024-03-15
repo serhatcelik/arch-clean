@@ -9,19 +9,15 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-
+set $alt Mod1
 set $mod Mod4
-
 
 # Font for window titles.
 font pango:JetBrains Mono Regular 12
 
-
 # XSS-LOCK grabs a logind suspend inhibit lock and will use i3lock to lock the screen before suspend.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- sh ~/.config/i3/lock.sh
-
 bindsym $mod+l exec --no-startup-id sh ~/.config/i3/lock.sh
-
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl get-sink-volume @DEFAULT_SINK@ | grep -q "100%" || pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -33,25 +29,20 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec --no-startup-id polybar-msg action backlight hook 1
 bindsym XF86MonBrightnessDown exec --no-startup-id polybar-msg action backlight hook 2
 
-
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
 
 # Move tiling windows via drag & drop by left-clicking into the title bar.
 tiling_drag modifier titlebar
 
-
 # Start a terminal.
 bindsym $mod+Return exec --no-startup-id alacritty --config-file ~/.config/alacritty/alacritty.toml
-
 
 # Kill focused window.
 bindsym $mod+Shift+q kill
 
-
 # Start program launcher.
 bindsym $mod+d exec --no-startup-id rofi -no-lazy-grab -show drun -config ~/.config/rofi/config.rasi -theme ~/.config/rofi/theme.rasi
-
 
 # Change focus.
 bindsym $mod+Left focus left
@@ -65,23 +56,19 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-
 # Split in horizontal orientation.
 bindsym $mod+h split h
 
 # Split in vertical orientation.
 bindsym $mod+v split v
 
-
 # Enter fullscreen mode for the focused container.
 bindsym $mod+f fullscreen toggle
-
 
 # Change container layout (stacked, tabbed, toggle split).
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-
 
 # Toggle tiling / floating.
 bindsym $mod+Shift+space floating toggle
@@ -89,16 +76,14 @@ bindsym $mod+Shift+space floating toggle
 # Change focus between tiling / floating windows.
 bindsym $mod+space focus mode_toggle
 
-
 # Focus the parent container.
 bindsym $mod+a focus parent
 
 # Focus the child container.
 bindsym $mod+c focus child
 
-
-# [Alt] + [Tab] to switch between two workspaces.
-bindsym Mod1+Tab workspace back_and_forth
+# Switch between two workspaces.
+bindsym $alt+Tab workspace back_and_forth
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -137,7 +122,6 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-
 # Reload the configuration file.
 bindsym $mod+Shift+c reload
 
@@ -147,53 +131,40 @@ bindsym $mod+Shift+r restart
 # Exit i3 (logs you out of your X session).
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-
 # Resize window.
 mode "RESIZE" {
     bindsym Left resize shrink width 5 px or 5 ppt
     bindsym Right resize grow width 5 px or 5 ppt
     bindsym Up resize grow height 5 px or 5 ppt
     bindsym Down resize shrink height 5 px or 5 ppt
-
     bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "RESIZE"
-
 
 # Mode launcher.
 set $Launcher LAUNCH: [F]irefox
 
 mode "$Launcher" {
-    bindsym f exec firefox
-
+    bindsym f exec --no-startup-id firefox
     bindsym Escape mode "default"
 }
-
 bindsym $mod+o mode "$Launcher"
-
 
 # Launch polybar.
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-
 # Start compositing manager.
 exec_always --no-startup-id picom --daemon --config ~/.config/picom/picom.conf
-
 
 # Set wallpaper.
 exec_always --no-startup-id sh ~/.fehbg
 
-
 # Screenshot app.
 bindsym $mod+p exec --no-startup-id flameshot gui
 
-
 # Start clipboard manager.
 exec_always --no-startup-id copyq
-
 bindsym $mod+q exec --no-startup-id copyq menu
-
 
 # Disable mouse focus, it is annoying.
 focus_follows_mouse no
