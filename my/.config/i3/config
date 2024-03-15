@@ -13,10 +13,12 @@
 set $mod Mod4
 
 
-font pango:JetBrains Mono Regular 12
+# Font for window titles.
+font pango:MesloLGS NF Regular 12
 
 
-# Lock your screen.
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- sh ~/.config/i3/lock.sh
 
 bindsym $mod+l exec --no-startup-id sh ~/.config/i3/lock.sh
@@ -36,6 +38,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id polybar-msg action backlight 
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
 
+# Move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
 
@@ -95,6 +99,11 @@ bindsym $mod+a focus parent
 bindsym $mod+c focus child
 
 
+# [Alt] + [Tab] to switch between two workspaces.
+bindsym Mod1+Tab workspace back_and_forth
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -182,7 +191,7 @@ exec_always --no-startup-id sh ~/.fehbg
 bindsym $mod+p exec --no-startup-id flameshot gui
 
 
-# Start CopyQ server.
+# Start clipboard manager.
 exec_always --no-startup-id copyq
 
 bindsym $mod+q exec --no-startup-id copyq menu
