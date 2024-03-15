@@ -1,2 +1,2 @@
 #!/bin/bash
-i3lock --nofork --image=/usr/share/backgrounds/2b.png --show-failed-attempts
+i3lock --nofork --color=301934 --show-failed-attempts
