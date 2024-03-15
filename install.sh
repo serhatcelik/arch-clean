@@ -1,7 +1,5 @@
 #!/bin/bash
 
-trap "" SIGINT
-
 if [ "$(id -u)" -eq 0 ]
 then
     echo "You are root."
