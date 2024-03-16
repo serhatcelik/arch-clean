@@ -20,7 +20,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- sh ~/.config/i3/lock.sh
 bindsym $mod+l exec --no-startup-id sh ~/.config/i3/lock.sh
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl get-sink-volume @DEFAULT_SINK@ | grep -q "100%" || pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl get-sink-volume @DEFAULT_SINK@ | grep -q "15[0-9]%" || pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
