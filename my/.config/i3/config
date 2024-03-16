@@ -143,7 +143,6 @@ bindsym $mod+r mode "RESIZE"
 
 # Mode launcher.
 set $Launcher LAUNCH: [F]irefox
-
 mode "$Launcher" {
     bindsym f exec --no-startup-id firefox
     bindsym Escape mode "default"
