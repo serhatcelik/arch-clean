@@ -15,9 +15,8 @@ set $mod Mod4
 # Font for window titles.
 font pango:JetBrains Mono Regular 12
 
-# XSS-LOCK grabs a logind suspend inhibit lock and will use i3lock to lock the screen before suspend.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- sh ~/.config/i3/lock.sh
-bindsym $mod+l exec --no-startup-id sh ~/.config/i3/lock.sh
+# Disable mouse focus, it is annoying.
+focus_follows_mouse no
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl get-sink-volume @DEFAULT_SINK@ | grep -q "15[0-9]%" || pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -129,7 +128,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Exit i3 (logs you out of your X session).
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -f 'pango:JetBrains Mono Regular 12' -m 'Exit i3? This will end the X session.' -B 'Yes' 'i3-msg exit'"
 
 # Resize window.
 mode "RESIZE" {
@@ -138,32 +137,24 @@ mode "RESIZE" {
     bindsym Up resize grow height 5 px or 5 ppt
     bindsym Down resize shrink height 5 px or 5 ppt
     bindsym Escape mode "default"
-}
-bindsym $mod+r mode "RESIZE"
+} bindsym $mod+r mode "RESIZE"
 
-# Mode launcher.
-set $Launcher LAUNCH: [F]irefox
-mode "$Launcher" {
-    bindsym f exec --no-startup-id firefox
-    bindsym Escape mode "default"
-}
-bindsym $mod+o mode "$Launcher"
+# Grab a logind suspend inhibit lock with xss-lock and use i3lock to lock the screen before suspend.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- sh ~/.config/i3/lock.sh
+bindsym $mod+l exec --no-startup-id sh ~/.config/i3/lock.sh
 
-# Launch polybar.
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+# Start clipboard manager.
+exec_always --no-startup-id copyq
+bindsym $mod+q exec --no-startup-id copyq show
 
 # Start compositing manager.
 exec_always --no-startup-id picom --daemon --config ~/.config/picom/picom.conf
+
+# Launch polybar.
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Set wallpaper.
 exec_always --no-startup-id sh ~/.fehbg
 
 # Screenshot app.
-bindsym $mod+p exec --no-startup-id flameshot gui
-
-# Start clipboard manager.
-exec_always --no-startup-id copyq
-bindsym $mod+q exec --no-startup-id copyq menu
-
-# Disable mouse focus, it is annoying.
-focus_follows_mouse no
+bindsym $mod+p exec --no-startup-id flameshot launcher
