@@ -141,6 +141,14 @@ mode "RESIZE" {
 }
     bindsym $mod+r mode "RESIZE"
 
+# Mode launcher.
+mode "LAUNCH: [S]ublime" {
+    bindsym s exec --no-startup-id subl
+    bindsym Escape mode "default"
+    bindsym $mod+o mode "default"
+}
+    bindsym $mod+o mode "LAUNCH: [S]ublime"
+
 # Grab a logind suspend inhibit lock with xss-lock and use i3lock to lock the screen before suspend.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- sh "$HOME"/.local/bin/lock.sh
 bindsym $mod+l exec --no-startup-id sh "$HOME"/.local/bin/lock.sh
