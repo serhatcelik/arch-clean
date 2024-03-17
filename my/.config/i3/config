@@ -136,6 +136,7 @@ mode "RESIZE" {
     bindsym Up resize grow height 5 px or 5 ppt
     bindsym Down resize shrink height 5 px or 5 ppt
     bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 } bindsym $mod+r mode "RESIZE"
 
 # Grab a logind suspend inhibit lock with xss-lock and use i3lock to lock the screen before suspend.
