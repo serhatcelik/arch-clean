@@ -53,6 +53,7 @@ cp -a my/. "$HOME"
 
 # Copy files (system)
 sudo cp -a system/. /
+sudo cp my/.vimrc /root
 
 # Build font information cache files
 fc-cache -fv /usr/share/fonts
