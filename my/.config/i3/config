@@ -83,6 +83,7 @@ bindsym $mod+c focus child
 
 # Switch between two workspaces.
 bindsym $alt+Tab workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 
 # Define names for default workspaces for which we configure key bindings later on.
 set $ws1 "1"
