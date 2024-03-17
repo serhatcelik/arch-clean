@@ -4,9 +4,10 @@ if [ "$(id -u)" -eq 0 ]
 then
     echo "You are root."
     exit 1
-else
-    sudo true
 fi
+
+sudo true
+
 
 # Install packages
 if ! sudo pacman -Syu --noconfirm --needed - < PACKAGES
