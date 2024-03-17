@@ -8,7 +8,6 @@ fi
 
 sudo true
 
-
 # Install packages
 if ! sudo pacman -Syu --noconfirm --needed - < PACKAGES
 then
