@@ -143,7 +143,7 @@ mode "RESIZE" {
 
 # Grab a logind suspend inhibit lock with xss-lock and use i3lock to lock the screen before suspend.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- sh "$HOME"/.local/bin/lock.sh
-bindsym $mod+l exec --no-startup-id sh "$HOME"/.local/bin/lock.sh"
+bindsym $mod+l exec --no-startup-id sh "$HOME"/.local/bin/lock.sh
 
 # Start clipboard manager.
 exec_always --no-startup-id copyq
