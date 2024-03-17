@@ -16,9 +16,9 @@ set $mod Mod4
 font pango:JetBrains Mono Regular 12
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl get-sink-volume @DEFAULT_SINK@ | grep -q "15[0-9]%" || pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send --urgency low --hint=string:x-dunst-stack-tag:volume "Volume" "$(sh "$HOME"/.local/bin/volume.sh)"
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send --urgency low --hint=string:x-dunst-stack-tag:volume "Volume" "$(sh "$HOME"/.local/bin/volume.sh)"
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl get-sink-volume @DEFAULT_SINK@ | grep -q "15[0-9]%" || pactl set-sink-volume @DEFAULT_SINK@ +5% && sh "$HOME"/.local/bin/volume.sh volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && sh "$HOME"/.local/bin/volume.sh volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && sh "$HOME"/.local/bin/volume.sh mute
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Use polybar backlight module to adjust brightness.
