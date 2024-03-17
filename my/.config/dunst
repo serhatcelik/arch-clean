@@ -24,6 +24,7 @@ show_indicators = yes
 shrink = yes
 sort = yes
 stack_duplicates = true
+stack_tag = volume
 sticky_history = yes
 title = Dunst
 transparency = 0
