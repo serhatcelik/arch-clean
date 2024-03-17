@@ -27,6 +27,7 @@ iptables
 ipython
 john
 jq
+libnotify
 libreoffice
 libva-intel-driver
 libva-mesa-driver
@@ -41,6 +42,7 @@ net-tools
 netcat
 networkmanager
 nmap
+notification-daemon
 ntfs-3g
 openssh
 openvpn
