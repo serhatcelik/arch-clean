@@ -5,7 +5,7 @@ then
     echo "You are root."
     exit 1
 else
-    sudo true  # Get sudo token
+    sudo true
 fi
 
 # Install packages
