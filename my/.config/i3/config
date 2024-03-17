@@ -37,12 +37,6 @@ tiling_drag modifier titlebar
 # Kill focused window.
 bindsym $mod+Shift+q kill
 
-# Start a terminal.
-bindsym $mod+Return exec --no-startup-id alacritty --config-file "$HOME"/.config/alacritty/alacritty.toml
-
-# Start program launcher.
-bindsym $mod+d exec --no-startup-id rofi -no-lazy-grab -show drun -config "$HOME"/.config/rofi/config.rasi -theme "$HOME"/.config/rofi/theme.rasi
-
 # Change focus.
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -163,11 +157,17 @@ exec_always --no-startup-id picom --daemon --config "$HOME"/.config/picom/picom.
 # Start notification daemon.
 exec_always --no-startup-id dunst -config "$HOME"/.config/dunst/dunstrc
 
-# Start screenshot app.
-bindsym $mod+p exec --no-startup-id flameshot launcher
-
 # Launch polybar.
 exec_always --no-startup-id sh "$HOME"/.local/bin/polybar.sh
 
 # Set wallpaper.
 exec_always --no-startup-id sh "$HOME"/.fehbg
+
+# Start a terminal.
+bindsym $mod+Return exec --no-startup-id alacritty --config-file "$HOME"/.config/alacritty/alacritty.toml
+
+# Start program launcher.
+bindsym $mod+d exec --no-startup-id rofi -no-lazy-grab -show drun -config "$HOME"/.config/rofi/config.rasi -theme "$HOME"/.config/rofi/theme.rasi
+
+# Start screenshot app.
+bindsym $mod+p exec --no-startup-id flameshot launcher
