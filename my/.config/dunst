@@ -1,7 +1,8 @@
 [global]
-alignment = right
+alignment = left
 always_run_script = true
 class = Dunst
+ellipsize = end
 follow = mouse
 font = JetBrains Mono Regular 14
 force_xinerama = false
