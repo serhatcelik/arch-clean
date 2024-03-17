@@ -16,8 +16,8 @@ set $mod Mod4
 font pango:JetBrains Mono Regular 12
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl get-sink-volume @DEFAULT_SINK@ | grep -q "15[0-9]%" || pactl set-sink-volume @DEFAULT_SINK@ +5% && sh "$HOME"/.local/bin/volume.sh volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && sh "$HOME"/.local/bin/volume.sh volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl get-sink-volume @DEFAULT_SINK@ | grep -q "15[0-9]%" || pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && sh "$HOME"/.local/bin/volume.sh mute
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
@@ -153,7 +153,7 @@ bindsym $mod+q exec --no-startup-id copyq show
 exec_always --no-startup-id picom --daemon --config "$HOME"/.config/picom/picom.conf
 
 # Start notification daemon.
-exec_always --no-startup-id dunst -config "$HOME"/.config/dunst/dunstrc
+exec_always --no-startup-id dunst dunst -config "$HOME"/.config/dunst/dunstrc
 
 # Start screenshot app.
 bindsym $mod+p exec --no-startup-id flameshot launcher
