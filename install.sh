@@ -24,8 +24,8 @@ sudo pacman -Syu sublime-text --noconfirm --needed
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Download Oh My Zsh plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions.git "$HOME/.oh-my-zsh/plugins/zsh-autosuggestions"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting"
+git clone https://github.com/zsh-users/zsh-autosuggestions.git "$HOME"/.oh-my-zsh/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME"/.oh-my-zsh/plugins/zsh-syntax-highlighting
 
 # Download Powerlevel10k theme
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
@@ -57,8 +57,8 @@ sudo cp -a system/. /
 # Build font information cache files
 fc-cache -fv /usr/share/fonts
 
-# Make the polybar scripts executable
-for f in .sh .py
+# Make non-hidden scripts executable
+for f in "$HOME"/.local/bin/*
 do
-    sh -c "chmod +x $HOME/.config/polybar/*$f"
+    sh -c "chmod +x $f"
 done

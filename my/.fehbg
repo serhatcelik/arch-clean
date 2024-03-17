@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/bin/bash
 feh --no-fehbg --bg-fill /usr/share/backgrounds/2b.jpg

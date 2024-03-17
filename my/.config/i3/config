@@ -38,10 +38,10 @@ tiling_drag modifier titlebar
 bindsym $mod+Shift+q kill
 
 # Start a terminal.
-bindsym $mod+Return exec --no-startup-id alacritty --config-file ~/.config/alacritty/alacritty.toml
+bindsym $mod+Return exec --no-startup-id alacritty --config-file "$HOME"/.config/alacritty/alacritty.toml
 
 # Start program launcher.
-bindsym $mod+d exec --no-startup-id rofi -no-lazy-grab -show drun -config ~/.config/rofi/config.rasi -theme ~/.config/rofi/theme.rasi
+bindsym $mod+d exec --no-startup-id rofi -no-lazy-grab -show drun -config "$HOME"/.config/rofi/config.rasi -theme "$HOME"/.config/rofi/theme.rasi
 
 # Change focus.
 bindsym $mod+Left focus left
@@ -142,21 +142,24 @@ mode "RESIZE" {
     bindsym $mod+r mode "RESIZE"
 
 # Grab a logind suspend inhibit lock with xss-lock and use i3lock to lock the screen before suspend.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- sh ~/.config/i3/lock.sh
-bindsym $mod+l exec --no-startup-id sh ~/.config/i3/lock.sh
+exec --no-startup-id xss-lock --transfer-sleep-lock -- sh "$HOME"/.local/bin/lock.sh
+bindsym $mod+l exec --no-startup-id sh "$HOME"/.local/bin/lock.sh"
 
 # Start clipboard manager.
 exec_always --no-startup-id copyq
 bindsym $mod+q exec --no-startup-id copyq show
 
 # Start compositing manager.
-exec_always --no-startup-id picom --daemon --config ~/.config/picom/picom.conf
+exec_always --no-startup-id picom --daemon --config "$HOME"/.config/picom/picom.conf
+
+# Start notification daemon.
+exec_always --no-startup-id dunst -config "$HOME"/.config/dunst/dunstrc
 
 # Start screenshot app.
 bindsym $mod+p exec --no-startup-id flameshot launcher
 
 # Launch polybar.
-exec_always --no-startup-id sh ~/.config/polybar/launch.sh
+exec_always --no-startup-id sh "$HOME"/.local/bin/polybar.sh
 
 # Set wallpaper.
-exec_always --no-startup-id sh ~/.fehbg
+exec_always --no-startup-id sh "$HOME"/.fehbg

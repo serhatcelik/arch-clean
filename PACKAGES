@@ -12,6 +12,7 @@ copyq
 coreutils
 curl
 dkms
+dunst
 feh
 ffmpeg
 firefox
@@ -42,7 +43,6 @@ net-tools
 netcat
 networkmanager
 nmap
-notification-daemon
 ntfs-3g
 openssh
 openvpn
