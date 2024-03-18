@@ -85,9 +85,9 @@ ZSH_HIGHLIGHT_STYLES[comment]='none'
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+    export EDITOR='vim'
 else
-  export EDITOR='vim'
+    export EDITOR='vim'
 fi
 
 # Compilation flags
