@@ -1,20 +1,17 @@
 #!/bin/bash
-get() {
-    pactl get-sink-volume @DEFAULT_SINK@ | grep -o -E "[0-9]+%"
+Get() {
+    pactl get-sink-"$1" @DEFAULT_SINK@ | grep -o -E "[0-9]+%|Mute.*"
 }
-if [ "$1" = "raise" ]
+Set() {
+    pactl set-sink-"$1" @DEFAULT_SINK@ "$2"
+}
+if [ "$3" = "lower" ] || [ "$3" = "mute" ]
 then
-    if ! grep -q "15[0-9]%" <<< "$(get)"
+    Set "$1" "$2"
+else
+    if ! grep -q "15[0-9]%" <<< "$(Get "$1")"
     then
-        pactl set-sink-volume @DEFAULT_SINK@ +5%
+        Set "$1" "$2"
     fi
-    notify-send --urgency low --hint=string:x-dunst-stack-tag:volume "Volume" "$(get)"
-elif [ "$1" = "lower" ]
-then
-    pactl set-sink-volume @DEFAULT_SINK@ -5%
-    notify-send --urgency low --hint=string:x-dunst-stack-tag:volume "Volume" "$(get)"
-elif [ "$1" = "mute" ]
-then
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
-    notify-send --urgency low --hint=string:x-dunst-stack-tag:volume "Volume" "$(pactl get-sink-mute @DEFAULT_SINK@)"
 fi
+notify-send --urgency low --hint=string:x-dunst-stack-tag:volume "Volume" "$(Get "$1")"
