@@ -80,5 +80,6 @@ xorg
 xorg-server
 xorg-xinit
 xss-lock
+zenity
 zip
 zsh
