@@ -55,6 +55,9 @@ set history=10000
 " Show the status on the second to last line.
 set laststatus=2
 
+" When a bracket is inserted, do not jump to the matching one.
+set noshowmatch
+
 " Show line numbers.
 " set number
 
