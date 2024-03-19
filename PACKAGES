@@ -3,6 +3,7 @@ alsa-utils
 arandr
 base
 base-devel
+bash
 bind
 bluez
 bluez-utils
