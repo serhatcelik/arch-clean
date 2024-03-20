@@ -14,4 +14,4 @@ else
         Set "$1" "$2"
     fi
 fi
-notify-send --urgency low --hint=string:x-dunst-stack-tag:volume "Volume" "$(Get "$1")"
+notify-send --urgency low --hint=string:x-dunst-stack-tag:my "Volume" "$(Get "$1")"
