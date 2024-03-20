@@ -8,7 +8,6 @@ bind
 bluez
 bluez-utils
 brightnessctl
-caja
 copyq
 coreutils
 curl
@@ -62,6 +61,7 @@ reflector
 rofi
 speech-dispatcher
 sudo
+thunar
 tk
 unzip
 vim
