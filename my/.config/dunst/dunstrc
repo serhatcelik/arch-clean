@@ -1,6 +1,7 @@
 [global]
 alignment = left
 always_run_script = true
+background = "#355e3b"
 class = Dunst
 ellipsize = end
 follow = mouse
@@ -28,22 +29,14 @@ shrink = yes
 sort = yes
 stack_duplicates = true
 sticky_history = yes
+timeout = 2
 title = Dunst
 transparency = 0
 width = 400
 word_wrap = yes
 
-[rules]
-stack_tag = volume
+[stack-default]
+set_stack_tag = "default"
 
-[urgency_low]
-background = "#355e3b"
-timeout = 2
-
-[urgency_normal]
-background = "#cc5500"
-timeout = 10
-
-[urgency_critical]
-background = "#d2042d"
-timeout = 0
+[stack-my]
+set_stack_tag = "my"
