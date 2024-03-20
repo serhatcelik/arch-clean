@@ -16,6 +16,7 @@ then
 fi
 
 # Install pulseaudio-ctl
+git clone https://aur.archlinux.org/pulseaudio-ctl.git
 makepkg -is --noconfirm --needed -D pulseaudio-ctl
 
 # Install Sublime Text
