@@ -154,7 +154,7 @@ bindsym $mod+q exec --no-startup-id copyq show
 exec_always --no-startup-id picom --daemon --config "$HOME"/.config/picom/picom.conf
 
 # Start notification daemon.
-exec_always --no-startup-id dunst -config "$HOME"/.config/dunst/dunstrc
+exec_always --no-startup-id sh "$HOME"/.local/bin/dunst.sh
 
 # Launch polybar.
 exec_always --no-startup-id sh "$HOME"/.local/bin/polybar.sh
