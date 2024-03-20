@@ -37,6 +37,7 @@ lightdm-gtk-greeter
 make
 man
 mesa
+mypy
 nano
 neofetch
 net-tools
@@ -57,6 +58,8 @@ powerline-fonts
 pulseaudio
 python
 python-pip
+python-pylint
+python-pylint-venv
 reflector
 rofi
 speech-dispatcher
