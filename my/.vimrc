@@ -55,9 +55,6 @@ set nobackup
 " Show the mode you are on the last line.
 set showmode
 
-" Show matching words during a search.
-set showmatch
-
 " While searching though a file incrementally highlight matching characters as you type.
 set incsearch
 
