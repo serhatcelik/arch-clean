@@ -28,11 +28,23 @@ syntax on
 " Use space characters instead of tabs.
 set expandtab
 
-" Copy the indentation of the current line to a new line.
-set autoindent
+" Set number of spaces that a tab in the file counts for.
+set tabstop=4
+
+" Number of spaces that a tab counts for while performing editing operations.
+set softtabstop=4
+
+" Number of spaces to use for each step of (auto)indent.
+set shiftwidth=4
+
+" Converting tabs to spaces.
+set expandtab
 
 " Do smart autoindenting when starting a new line.
 set smartindent
+
+" Minimal number of screen lines to keep above and below the cursor.
+set scrolloff=8
 
 " Shift tab for insert mode.
 inoremap <S-Tab> <C-d>
@@ -60,6 +72,9 @@ set noshowmatch
 
 " Show line numbers.
 " set number
+
+" Show the line number relative to the line with the cursor in front of each line.
+" set relativenumber
 
 " Show a vertical line for the maximum line length.
 " set colorcolumn=80
