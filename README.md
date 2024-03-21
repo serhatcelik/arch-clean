@@ -1,6 +1,7 @@
 Clone this repo and run `install.sh` from a non-root user:
 
 ```bash
+git clone https://github.com/serhatcelik/arch-clean.git
 cd arch-clean
 ./install.sh
 cd ..
