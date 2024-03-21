@@ -35,8 +35,5 @@ transparency = 0
 width = 400
 word_wrap = yes
 
-[stack-default]
-set_stack_tag = "default"
-
 [stack-my]
 set_stack_tag = "my"
