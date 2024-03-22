@@ -1,6 +1,6 @@
 #!/bin/bash
 Audio() {
-    pulseaudio-ctl full-status | cut -d " " -f -2 | sed 's/yes/(mute)/;s/no//'
+    amixer get Master | sed -n -E 's/.*Left:.*\[([0-9]+)%\].*\[(on|off)\]/\1 \2/p' | sed 's/on//;s/off/(mute)/'
 }
 Brightness() {
     brightnessctl set +0 | grep -o -P "[0-9]+(?=%)"
