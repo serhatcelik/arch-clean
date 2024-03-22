@@ -5,4 +5,4 @@ Audio() {
 Brightness() {
     brightnessctl set +0 | grep -o -P "[0-9]+(?=%)"
 }
-notify-send --hint=string:x-dunst-stack-tag:my "$1" "$("$1")"
+notify-send --hint=string:x-dunst-stack-tag:my "$1" "$($1)"
