@@ -148,7 +148,7 @@ bindsym $mod+l exec --no-startup-id bash "$HOME"/.local/bin/lock.sh
 
 # Start clipboard manager.
 exec_always --no-startup-id copyq
-bindsym $mod+q exec --no-startup-id copyq show
+bindsym $mod+b exec --no-startup-id copyq show
 
 # Start compositing manager.
 exec_always --no-startup-id picom --daemon --config "$HOME"/.config/picom/picom.conf
