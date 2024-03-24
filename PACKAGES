@@ -1,5 +1,6 @@
 alacritty
 alsa-utils
+android-file-transfer
 arandr
 base
 base-devel
@@ -17,6 +18,7 @@ feh
 ffmpeg
 firefox
 flameshot
+fuse
 gcc
 git
 github-cli
@@ -72,6 +74,7 @@ tk
 tor
 torbrowser-launcher
 unzip
+usbutils
 vim
 vulkan-intel
 vulkan-radeon
