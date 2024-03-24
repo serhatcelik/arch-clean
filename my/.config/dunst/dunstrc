@@ -2,7 +2,6 @@
 alignment = left
 always_run_script = true
 background = "#355e3b"
-class = Dunst
 ellipsize = end
 follow = mouse
 font = JetBrains Mono Regular 14
@@ -17,24 +16,24 @@ history_length = 20
 horizontal_padding = 50
 icon_position = off
 idle_threshold = 120
-ignore_newline = no
-indicate_hidden = yes
+ignore_newline = false
+indicate_hidden = true
 line_height = 2
 markup = full
 origin = top-right
 padding = 50
-separator_height = 0
+separator_color = "#000000"
+separator_height = 5
 show_age_threshold = -1
 show_indicators = false
-shrink = yes
-sort = yes
+shrink = true
+sort = true
 stack_duplicates = true
-sticky_history = yes
+sticky_history = true
 timeout = 3
-title = Dunst
 transparency = 0
 width = 400
-word_wrap = yes
+word_wrap = true
 
-[stack-my]
-set_stack_tag = "my"
+[stuck]
+stack_tag = "my"
