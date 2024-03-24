@@ -55,6 +55,7 @@ poetry
 polybar
 powerline
 powerline-fonts
+proxychains
 pulseaudio
 python
 python-pip
@@ -68,6 +69,8 @@ systemd
 systemd-sysvcompat
 thunar
 tk
+tor
+torbrowser-launcher
 unzip
 vim
 vulkan-intel
