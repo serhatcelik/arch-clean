@@ -1,15 +1,15 @@
-highlight Trail ctermbg=red
-autocmd ColorScheme * highlight Trail ctermbg=red
-match Trail /\s\+$/
 filetype indent on
 filetype on
 filetype plugin on
+autocmd BufRead,BufNewFile ~/.config/i3/* set syntax=i3config
 inoremap <S-Tab> <C-d>
 set expandtab
 set expandtab
 set history=10000
 set incsearch
 set laststatus=2
+set list
+set listchars=trail:^
 set nobackup
 set noshowmatch
 set scrolloff=8
