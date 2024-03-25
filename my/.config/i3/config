@@ -14,7 +14,6 @@ set $mod Mod4
 
 font pango:JetBrains Mono Regular 12
 
-include ~/.config/i3/config.d/*.conf
-
-# Disable mouse focus, it is annoying.
 focus_follows_mouse no
+
+include ~/.config/i3/config.d/*.conf
