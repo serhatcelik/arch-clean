@@ -68,8 +68,6 @@ reflector
 rofi
 speech-dispatcher
 sudo
-systemd
-systemd-sysvcompat
 thunar
 tk
 tor
