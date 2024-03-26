@@ -67,6 +67,7 @@ python-pylint-venv
 reflector
 rofi
 speech-dispatcher
+strace
 sudo
 thunar
 tk
