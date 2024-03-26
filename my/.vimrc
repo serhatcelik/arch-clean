@@ -4,7 +4,6 @@ filetype plugin on
 autocmd BufRead,BufNewFile ~/.config/i3/* set syntax=i3config
 inoremap <S-Tab> <C-d>
 set expandtab
-set expandtab
 set history=10000
 set incsearch
 set laststatus=2
