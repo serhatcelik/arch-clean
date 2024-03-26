@@ -22,7 +22,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git "$HOME"/.oh-my-zs
 # Download Powerlevel10k theme
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
-# Unblock wireless devices with rfkill
+# Unblock wireless devices
 rfkill unblock bluetooth
 rfkill unblock wlan
 
@@ -34,7 +34,7 @@ sudo systemctl enable reflector.service
 # Enable timers
 sudo systemctl enable reflector.timer
 
-# Change default shell to zsh
+# Change default shell
 sudo chsh "$USER" --shell "$(which zsh)"
 
 # Add user to the video group
