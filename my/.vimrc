@@ -16,5 +16,5 @@ set showmode
 set smartindent
 set softtabstop=4
 set tabstop=4
-set whichwrap+=<,>,[,]
+set whichwrap+=<,>,h,l,[,]
 syntax on
