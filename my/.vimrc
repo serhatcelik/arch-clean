@@ -10,6 +10,8 @@ set listchars=trail:^
 set nobackup
 set nocompatible
 set noshowmatch
+set number
+set relativenumber
 set scrolloff=8
 set shiftwidth=4
 set showmode
