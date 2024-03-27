@@ -1,10 +1,10 @@
 @import "colors.rasi"
 
 * {
-    background-color: @bg;
+    background-color: @bground;
     border: 0px;
     location: center;
-    text-color: @fg;
+    text-color: @fground;
     transparency: "real";
     width: 1000px;
     x-offset: 0;
@@ -16,13 +16,13 @@ error-message {
 }
 
 prompt {
-    background-color: @mg;
+    background-color: @mground;
     enabled: true;
     padding: 0px;
 }
 
 entry {
-    background-color: @mg;
+    background-color: @mground;
     blink: true;
     expand: true;
     horizontal-align: 0;
@@ -30,7 +30,7 @@ entry {
 }
 
 inputbar {
-    background-color: @mg;
+    background-color: @mground;
     children: [ prompt, entry ];
     expand: false;
     margin: 0px;
@@ -59,7 +59,7 @@ element {
 }
 
 element selected {
-    background-color: @mg;
+    background-color: @mground;
 }
 
 element-icon {

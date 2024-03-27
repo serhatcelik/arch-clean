@@ -1,5 +1,5 @@
 * {
-    bg: #1f1f1fff;
-    fg: #faf9f6ff;
-    mg: #301934ff;
+    bground: #1f1f1fff;
+    fground: #faf9f6ff;
+    mground: #301934ff;
 }
