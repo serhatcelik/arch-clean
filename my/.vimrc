@@ -1,4 +1,6 @@
-filetype plugin indent on
+filetype indent on
+filetype on
+filetype plugin on
 set clipboard=unnamedplus
 set encoding=UTF-8
 set expandtab
