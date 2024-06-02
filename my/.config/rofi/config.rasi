@@ -1,0 +1,10 @@
+configuration {
+    disable-history: false;
+    font: "Noto Sans Mono 12";
+    fullscreen: false;
+    hide-scrollbar: true;
+    icon-theme: "Papirus";
+    modi: "drun,window";
+    show-icons: true;
+    sidebar-mode: false;
+}
