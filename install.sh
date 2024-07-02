@@ -68,6 +68,5 @@ sudo systemctl enable bluetooth.service
 sudo systemctl enable cronie.service
 sudo systemctl enable dhcpcd.service
 sudo systemctl enable iwd.service
-sudo systemctl enable lightdm.service
 sudo systemctl enable NetworkManager.service
 sudo systemctl enable systemd-timesyncd.service
